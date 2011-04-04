@@ -1,6 +1,8 @@
 # vim:ts=4:sw=4:expandtab
 import socket
 import errno
+from diesel.resolver import resolve_dns_name
+from diesel.core import _private_connect
 
 class Client(object):
     '''An agent that connects to an external host and provides an API to
@@ -13,8 +15,6 @@ class Client(object):
         self.addr = addr
         self.port = port
 
-        from resolver import resolve_dns_name
-        from core import _private_connect
 
         ip = resolve_dns_name(self.addr)
         remote_addr = (ip, self.port)
