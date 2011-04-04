@@ -52,7 +52,7 @@ def until(*args, **kw):
     return current_loop.input_op(*args, **kw)
 
 def until_eol():
-    return until("\r\n")
+    return until(CRLF)
 
 def receive(*args, **kw):
     return current_loop.input_op(*args, **kw)
